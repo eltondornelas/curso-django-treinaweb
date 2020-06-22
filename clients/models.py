@@ -5,7 +5,7 @@ class Client(models.Model):
     SEX_CHOICES = (
         ('F', 'Feminino'),
         ('M', 'Masculino'),
-        ('N', 'Nenhuma das opções')
+        ('O', 'Outros')
     )
 
     name = models.CharField(max_length=100, null=False, blank=False)
