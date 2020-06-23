@@ -6,30 +6,41 @@
 </head>
 <body>
 <!--  {{ form.as_p }}  -->
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.name.errors }}
+            <label>Nome: </label>
+            {{ form.name }}
+        </div>
 
-<div>
-    <label>Nome: </label>
-    {{ form.name }}
-</div>
+        <div>
+            {{ form.sex.errors }}
+            <label>Sexo: </label>
+            {{ form.sex }}
+        </div>
 
-<div>
-    <label>Sexo: </label>
-    {{ form.sex }}
-</div>
+        <div>
+            {{ form.birthday.errors }}
+            <label>Data de Nascimento: </label>
+            {{ form.birthday }}
+        </div>
 
-<div>
-    <label>Data de Nascimento: </label>
-    {{ form.birthday }}
-</div>
+        <div>
+            {{ form.email.errors }}
+            <label>Email: </label>
+            {{ form.email }}
+        </div>
 
-<div>
-    <label>Email: </label>
-    {{ form.email }}
-</div>
+        <div>
+            {{ form.profession.errors }}
+            <label>Profissão: </label>
+            {{ form.profession }}
+        </div>
 
-<div>
-    <label>Profissão: </label>
-    {{ form.profession }}
-</div>
+        <div>
+            <input type="submit" name="Cadastrar">
+        </div>
+    </form>
 </body>
 </html>
