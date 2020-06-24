@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Client
 from .forms import ClientForm
@@ -28,3 +29,8 @@ def register_client(request):
         form = ClientForm()
 
     return render(request, 'clients/form_client.html', {'form': form})
+
+
+def list_client_id(request, id):
+    client = Client.objects.get(id=id)
+    return render(request, 'clients/list_client.html', {'client': client})

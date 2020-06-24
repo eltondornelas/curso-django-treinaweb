@@ -17,7 +17,7 @@
     <tbody>
     {% for i in clients %}
     <tr>
-        <td>{{ i.name }}</td>
+        <td><a href="{% url 'list_client_id' i.id %}">{{ i.name }}</a></td>
         <td>{{ i.birthday | date:'d M Y' }}</td>
         <td>{{ i.sex }}</td>
     </tr>
