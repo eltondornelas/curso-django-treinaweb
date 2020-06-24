@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Client
 from .forms import ClientForm
 
@@ -20,6 +20,7 @@ def register_client(request):
         form = ClientForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('list_clients')
 
     else:
         # sem o else ele cria um novo form e perde os erros guardados da

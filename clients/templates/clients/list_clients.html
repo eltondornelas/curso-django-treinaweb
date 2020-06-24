@@ -1,28 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TW Clientes</title>
-</head>
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>Sexo</th>
-            </tr>
-        </thead>
+{% extends 'clients/base.html' %}
 
-        <tbody>
-            {% for i in clients %}
-            <tr>
-                <td>{{ i.name }}</td>
-                <td>{{ i.birthday }}</td>
-                <td>{{ i.sex }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
+{% block title %}
+    Listagem de Clientes
+{% endblock title %}
+
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Data de Nascimento</th>
+        <th>Sexo</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for i in clients %}
+    <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.birthday }}</td>
+        <td>{{ i.sex }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'register_client' %}">
+    <button class="btn btn-primary">Cadastrar</button>
+</a>
+{% endblock content %}
