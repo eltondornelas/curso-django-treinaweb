@@ -18,7 +18,7 @@
     {% for i in clients %}
     <tr>
         <td>{{ i.name }}</td>
-        <td>{{ i.birthday }}</td>
+        <td>{{ i.birthday | date:'d M Y' }}</td>
         <td>{{ i.sex }}</td>
     </tr>
     {% endfor %}
