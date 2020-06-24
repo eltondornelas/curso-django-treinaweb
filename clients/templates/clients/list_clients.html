@@ -11,6 +11,7 @@
         <th>Nome</th>
         <th>Data de Nascimento</th>
         <th>Sexo</th>
+        <th>Ações</th>
     </tr>
     </thead>
 
@@ -20,6 +21,10 @@
         <td><a href="{% url 'list_client_id' i.id %}">{{ i.name }}</a></td>
         <td>{{ i.birthday | date:'d M Y' }}</td>
         <td>{{ i.sex }}</td>
+        <td>
+            <a href="{% url 'edit_client' i.id %}">Editar</a>
+            <a href="{% url 'remove_client' i.id %}">Remover</a>
+        </td>
     </tr>
     {% endfor %}
     </tbody>

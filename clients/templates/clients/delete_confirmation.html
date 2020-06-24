@@ -1,0 +1,32 @@
+{% extends 'clients/base.html' %}
+
+{% block title %}
+    Remoção de Cliente
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        Tem certeza que deseja remover o cliente abaixo?
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Nome: {{ client.name }}</h5>
+        <h5 class="card-title">Sexo: {{ client.sex }}</h5>
+        <h5 class="card-title">Data de Nascimento: {{ client.birthday }}</h5>
+        <h5 class="card-title">Email: {{ client.email }}</h5>
+        <h5 class="card-title">Profissão: {{ client.profession }}</h5>
+
+        <form method="post">
+            {% csrf_token %}
+            <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">
+            Voltar</a>
+            <button class="btn btn-danger" type="submit">Remover</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock content %}
