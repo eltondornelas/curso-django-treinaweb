@@ -10,4 +10,6 @@ urlpatterns = [
     path('remove_client/<int:id>', remove_client, name='remove_client'),
     path('register_order', register_order, name='register_order'),
     path('list_orders', list_orders, name='list_orders'),
+    path('list_order/<int:id>', list_order_id, name='list_order_id'),
+    path('edit_order/<int:id>', edit_order, name='edit_order'),
 ]

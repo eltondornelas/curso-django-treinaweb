@@ -9,3 +9,18 @@ def register_order(order):
 
 def list_orders():
     return Order.objects.all()
+
+
+def list_order_id(id):
+    order = Order.objects.get(id=id)
+    return order
+
+
+def edit_order(order, new_order):
+    order.client = new_order.client
+    order.order_date = new_order.order_date
+    order.value = new_order.value
+    order.status = new_order.status
+    order.observations = new_order.observations
+
+    order.save(force_update=True)
