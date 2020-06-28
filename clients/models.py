@@ -14,6 +14,15 @@ class Address(models.Model):
         return self.street
 
 
+class Product(models.Model):
+    name = models.CharField(max_length=50, null=False, blank=False)
+    description = models.CharField(max_length=100, null=False, blank=False)
+    value = models.FloatField(null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+
+
 class Client(models.Model):
     SEX_CHOICES = (
         ('F', 'Feminino'),
@@ -47,6 +56,7 @@ class Order(models.Model):
     status = models.CharField(max_length=1, choices=STATUS_CHOICES,
                               blank=False, null=False)
     observations = models.CharField(max_length=50, null=True, blank=True)
+    products = models.ManyToManyField(Product)
 
     def __str__(self):
         return self.client.name
