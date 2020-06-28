@@ -1,5 +1,5 @@
 from django import forms
-from .models import Client
+from .models import Client, Address
 
 
 class ClientForm(forms.ModelForm):
@@ -9,4 +9,11 @@ class ClientForm(forms.ModelForm):
 
     class Meta:
         model = Client
-        fields = '__all__'
+        fields = ['name', 'sex', 'birthday', 'email', 'profession']
+
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ['street', 'number', 'complement', 'district', 'city',
+                  'country']

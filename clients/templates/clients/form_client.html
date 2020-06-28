@@ -11,33 +11,72 @@
 <form method="post">
     {% csrf_token %}
     <div class="form-group">
-        {{ form.name.errors }}
+        {{ form_client.name.errors }}
         <label>Nome: </label>
-        {{ form.name | addclass:'form-control' }}
+        {{ form_client.name | addclass:'form-control' }}
     </div>
 
     <div class="form-group">
-        {{ form.sex.errors }}
+        {{ form_client.sex.errors }}
         <label>Sexo: </label>
-        {{ form.sex | addclass:'form-control' }}
+        {{ form_client.sex | addclass:'form-control' }}
     </div>
 
     <div class="form-group">
-        {{ form.birthday.errors }}
+        {{ form_client.birthday.errors }}
         <label>Data de Nascimento: </label>
-        {{ form.birthday | addclass:'form-control' }}
+        {{ form_client.birthday | addclass:'form-control' }}
     </div>
 
     <div class="form-group">
-        {{ form.email.errors }}
+        {{ form_client.email.errors }}
         <label>Email: </label>
-        {{ form.email | addclass:'form-control' }}
+        {{ form_client.email | addclass:'form-control' }}
     </div>
 
     <div class="form-group">
-        {{ form.profession.errors }}
+        {{ form_client.profession.errors }}
         <label>Profissão: </label>
-        {{ form.profession | addclass:'form-control' }}
+        {{ form_client.profession | addclass:'form-control' }}
+    </div>
+
+    <hr>
+    <h3>Endereço</h3>
+
+    <div class="form-group">
+        {{ form_address.street.errors }}
+        <label>Rua: </label>
+        {{ form_address.street | addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_address.number.errors }}
+        <label>Número: </label>
+        {{ form_address.number | addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_address.complement.errors }}
+        <label>Complemento: </label>
+        {{ form_address.complement | addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_address.district.errors }}
+        <label>Bairro: </label>
+        {{ form_address.district | addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_address.city.errors }}
+        <label>Cidade: </label>
+        {{ form_address.city | addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        {{ form_address.country.errors }}
+        <label>País: </label>
+        {{ form_address.country | addclass:'form-control' }}
     </div>
 
     <div class="form-group">

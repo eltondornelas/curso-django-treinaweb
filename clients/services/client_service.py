@@ -14,7 +14,7 @@ def list_client_id(id):
 def register_client(client):
     Client.objects.create(name=client.name, sex=client.sex,
                           birthday=client.birthday, email=client.email,
-                          profession=client.profession)
+                          profession=client.profession, address=client.address)
 
 
 def edit_client(client, new_client):
@@ -23,6 +23,7 @@ def edit_client(client, new_client):
     client.birthday = new_client.birthday
     client.email = new_client.email
     client.profession = new_client.profession
+    client.address = new_client.address
 
     client.save(force_update=True)
 

@@ -1,10 +1,11 @@
 class Client:
-    def __init__(self, name, sex, birthday, email, profession):
+    def __init__(self, name, sex, birthday, email, profession, address):
         self.__name = name
         self.__sex = sex
         self.__birthday = birthday
         self.__email = email
         self.__profession = profession
+        self.__address = address
 
     @property
     def name(self):
@@ -45,3 +46,11 @@ class Client:
     @profession.setter
     def profession(self, profession):
         self.__profession = profession
+
+    @property
+    def address(self):
+        return self.__address
+
+    @address.setter
+    def address(self, address):
+        self.__address = address

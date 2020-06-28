@@ -18,6 +18,17 @@
         <h5 class="card-title">Data de Nascimento: {{ client.birthday }}</h5>
         <h5 class="card-title">Email: {{ client.email }}</h5>
         <h5 class="card-title">Profissão: {{ client.profession }}</h5>
+
+        {% if client.address %}
+            <hr>
+            <h4>Endereço</h4>
+            <h5 class="card-title">Rua: {{ client.address.street }}</h5>
+            <h5 class="card-title">Nº: {{ client.address.number }}</h5>
+            <h5 class="card-title">Complemento: {{ client.address.complement }}</h5>
+            <h5 class="card-title">Bairro: {{ client.address.district }}</h5>
+            <h5 class="card-title">Cidade: {{ client.address.city }}</h5>
+            <h5 class="card-title">País: {{ client.address.country }}</h5>
+        {% endif %}
     </div>
 
 </div>
