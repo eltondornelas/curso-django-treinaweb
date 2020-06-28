@@ -9,4 +9,5 @@ urlpatterns = [
     path('edit_client/<int:id>', edit_client, name='edit_client'),
     path('remove_client/<int:id>', remove_client, name='remove_client'),
     path('register_order', register_order, name='register_order'),
+    path('list_orders', list_orders, name='list_orders'),
 ]
