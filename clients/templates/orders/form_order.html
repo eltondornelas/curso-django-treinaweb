@@ -38,6 +38,12 @@
         {{ form_order.order_date | addclass:'form-control' }}
     </div>
 
+    <div class="form-group">
+        {{ form_order.products.errors }}
+        <label >Data do pedido: </label>
+        {{ form_order.products | addclass:'form-control' }}
+    </div>
+
     <div>
         <input type="submit" name="Cadastrar" value="Cadastrar">
     </div>

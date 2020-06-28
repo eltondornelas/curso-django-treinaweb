@@ -1,10 +1,17 @@
 from ..models import Order
+from .product_service import *
 
 
 def register_order(order):
-    Order.objects.create(client=order.client, order_date=order.order_date,
-                         value=order.value, status=order.status,
-                         observations=order.observations)
+    order_db = Order.objects.create(client=order.client,
+                                    order_date=order.order_date,
+                                    value=order.value, status=order.status,
+                                    observations=order.observations)
+    order_db.save()
+    # não ficou claro o porque do save logo após o create
+    for i in order.products:
+        product = list_product_id(i.id)
+        order_db.products.add(product)
 
 
 def list_orders():

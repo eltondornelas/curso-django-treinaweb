@@ -1,5 +1,5 @@
 from django import forms
-from ..models import Order, Client
+from ..models import Order, Client, Product
 
 
 class OrderForm(forms.ModelForm):
@@ -7,6 +7,9 @@ class OrderForm(forms.ModelForm):
     # instrutor colocou a linha acima, porém acredito que isso já é o que
     # acontece por padrão.
 
+    products = forms.ModelMultipleChoiceField(queryset=Product.objects.all())
+
     class Meta:
         model = Order
-        fields = ['client', 'observations', 'order_date', 'value', 'status']
+        fields = ['client', 'observations', 'order_date', 'value', 'status',
+                  'products']

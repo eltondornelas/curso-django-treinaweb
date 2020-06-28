@@ -1,10 +1,12 @@
 class Order:
-    def __init__(self, client, order_date, value, status, observations):
+    def __init__(self, client, order_date, value, status, observations,
+                 products):
         self.__client = client
         self.__order_date = order_date
         self.__value = value
         self.__status = status
         self.__observations = observations
+        self.__products = products
 
     @property
     def client(self):
@@ -45,3 +47,11 @@ class Order:
     @observations.setter
     def observations(self, observations):
         self.__observations = observations
+
+    @property
+    def products(self):
+        return self.__products
+
+    @products.setter
+    def products(self, products):
+        self.__products = products

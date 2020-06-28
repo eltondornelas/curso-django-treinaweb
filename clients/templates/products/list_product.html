@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listagem de Produto
+{% endblock title %}
+
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        Dados do Produto
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title">Nome: {{ product.name }}</h5>
+        <h5 class="card-title">Observaçoes: {{ product.description }}</h5>
+        <h5 class="card-title">Value: {{ product.value }}</h5>
+    </div>
+
+</div>
+
+{% endblock content %}

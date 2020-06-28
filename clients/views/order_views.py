@@ -14,10 +14,11 @@ def register_order(request):
             value = form_order.cleaned_data['value']
             status = form_order.cleaned_data['status']
             order_date = form_order.cleaned_data['order_date']
+            products = form_order.cleaned_data['products']
 
             new_order = Order(client=client, order_date=order_date,
                               value=value, status=status,
-                              observations=observations)
+                              observations=observations, products=products)
             order_service.register_order(new_order)
             return redirect('list_orders')
     else:
