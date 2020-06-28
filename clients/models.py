@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Address(models.Model):
@@ -31,3 +32,21 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Order(models.Model):
+    STATUS_CHOICES = (
+        ('P', 'Pedido realizado'),
+        ('F', 'Fazendo'),
+        ('E', 'Saiu para entrega'),
+    )
+
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    order_date = models.DateTimeField(default=timezone.now)
+    value = models.FloatField(blank=False, null=False)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES,
+                              blank=False, null=False)
+    observations = models.CharField(max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return self.client.name

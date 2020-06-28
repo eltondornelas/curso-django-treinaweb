@@ -1,9 +1,9 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .forms import ClientForm, AddressForm
-from .entities.client import Client
-from .entities.address import Address
-from .services import client_service, address_service
+from clients.forms.address_forms import AddressForm
+from clients.forms.client_forms import ClientForm
+from clients.entities.client import Client
+from clients.entities.address import Address
+from clients.services import client_service, address_service
 
 
 def list_clients(request):
@@ -117,6 +117,7 @@ def edit_client(request, id):
 
 
 def remove_client(request, id):
+    # TODO: ainda existe o erro de tentar remover clientes sem endereço.
     client = client_service.list_client_id(id)
     address = address_service.list_address_id(client.address.id)
 
