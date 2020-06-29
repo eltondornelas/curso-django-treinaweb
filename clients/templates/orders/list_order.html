@@ -20,6 +20,12 @@
         <h5 class="card-title">Status: {{ order.status }}</h5>
     </div>
 
+    <hr>
+    <h4>Produtos do pedido: </h4>
+    {% for i in order.products.all %}
+        <h5>{{ i.name }}</h5>
+    {% endfor %}
+
 </div>
 
 {% endblock content %}
