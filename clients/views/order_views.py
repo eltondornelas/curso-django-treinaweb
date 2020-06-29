@@ -49,10 +49,11 @@ def edit_order(request, id):
         # TODO: criar um filtro para colocar em R$
         status = form_order.cleaned_data['status']
         order_date = form_order.cleaned_data['order_date']
+        products = form_order.cleaned_data['products']
 
         new_order = Order(client=client, order_date=order_date,
                           value=value, status=status,
-                          observations=observations)
+                          observations=observations, products=products)
         order_service.edit_order(order, new_order)
         return redirect('list_orders')
 

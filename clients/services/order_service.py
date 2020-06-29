@@ -29,5 +29,6 @@ def edit_order(order, new_order):
     order.value = new_order.value
     order.status = new_order.status
     order.observations = new_order.observations
+    order.products.set(new_order.products)
 
     order.save(force_update=True)

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.db.models.signals import m2m_changed
 
 
 class Address(models.Model):
@@ -60,3 +61,20 @@ class Order(models.Model):
 
     def __str__(self):
         return self.client.name
+
+
+def pre_save_product_receiver(sender, instance, action, **kwargs):
+    # django-signals  -> m2m_changed
+    if action == 'post_add' or action == 'post_remove' or \
+            action == 'post_clear':
+        # se adicionou, editou/removeu ou limpou todos produtos daquele pedido
+        products = instance.products.all()
+        total = 0
+        for i in products:
+            total += i.value
+
+        instance.value = total
+        instance.save()
+
+
+m2m_changed.connect(pre_save_product_receiver, sender=Order.products.through)
