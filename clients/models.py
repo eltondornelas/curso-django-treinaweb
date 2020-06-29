@@ -78,3 +78,16 @@ def pre_save_product_receiver(sender, instance, action, **kwargs):
 
 
 m2m_changed.connect(pre_save_product_receiver, sender=Order.products.through)
+
+
+'''
+python manage.py migrate clients 0005_order
+
+caso precise desfazer uma migração, basta fazer um rollback digitando o 
+comando migrate seguido do nome do app seguido do nome da migração que fica
+no histórico no diretório migrations.
+uma vez executado esse comando as migrações após esse rollback são desativados
+e com isso é possível excluir a classe/tabela e o arquivo de migração 
+com segurança do seu projeto
+
+'''
