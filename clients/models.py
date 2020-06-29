@@ -91,3 +91,14 @@ e com isso é possível excluir a classe/tabela e o arquivo de migração
 com segurança do seu projeto
 
 '''
+
+'''
+# caso precise mapear um bd legado para um projeto django basta:
+em settings.py configurar o banco de dados e então digitar:
+
+python manage.py inspectdb > nome_app/models.py
+
+
+relações OneToOne acabam sendo convertidos para ForeignKey com o atributo
+unique=True
+'''
