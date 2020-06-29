@@ -1,5 +1,6 @@
 from ..models import Order
 from .product_service import *
+from django.db import connection
 
 
 def register_order(order):
@@ -15,7 +16,19 @@ def register_order(order):
 
 
 def list_orders():
-    return Order.objects.all()
+    # orders = Order.objects.all()
+    orders = Order.objects.select_related('client').all()
+    # client -> o nome da relação
+
+    for i in orders:
+        print(i.client.name)
+        # for igual ao do template para mostrar quantas queries fazemos
+
+    # para evitar o problema do N+1, vamos utilizar o join com select_related
+    print(connection.queries)
+    print(len(connection.queries))
+
+    return orders
 
 
 def list_order_id(id):
