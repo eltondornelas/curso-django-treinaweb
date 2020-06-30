@@ -17,6 +17,12 @@
     </div>
 
     <div class="form-group">
+        {{ form_client.lastname.errors }}
+        <label>Sobrenome: </label>
+        {{ form_client.lastname | addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
         {{ form_client.sex.errors }}
         <label>Sexo: </label>
         {{ form_client.sex | addclass:'form-control' }}

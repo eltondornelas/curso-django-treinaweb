@@ -32,6 +32,7 @@ class Client(models.Model):
     )
 
     name = models.CharField(max_length=100, null=False, blank=False)
+    lastname = models.CharField(max_length=30, null=True)
     birthday = models.DateField(null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
     profession = models.CharField(max_length=50, null=False, blank=False)
@@ -101,4 +102,9 @@ python manage.py inspectdb > nome_app/models.py
 
 relações OneToOne acabam sendo convertidos para ForeignKey com o atributo
 unique=True
+'''
+
+'''
+# criando uma migração em branco/vazia
+python manage.py makemigrations --empty nome_app
 '''

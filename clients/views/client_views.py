@@ -24,6 +24,7 @@ def register_client(request):
         form_address = AddressForm(request.POST)
         if form_client.is_valid():
             name = form_client.cleaned_data['name']
+            lastname = form_client.cleaned_data['lastname']
             sex = form_client.cleaned_data['sex']
             birthday = form_client.cleaned_data['birthday']
             email = form_client.cleaned_data['email']
@@ -42,7 +43,8 @@ def register_client(request):
                                       city=city, country=country)
                 address_db = address_service.register_address(new_address)
 
-                new_client = Client(name=name, sex=sex, birthday=birthday,
+                new_client = Client(name=name, lastname=lastname, sex=sex,
+                                    birthday=birthday,
                                     email=email, profession=profession,
                                     address=address_db)
                 client_service.register_client(new_client)
@@ -77,6 +79,7 @@ def edit_client(request, id):
 
     if form_client.is_valid():
         name = form_client.cleaned_data['name']
+        lastname = form_client.cleaned_data['lastname']
         sex = form_client.cleaned_data['sex']
         birthday = form_client.cleaned_data['birthday']
         email = form_client.cleaned_data['email']
@@ -97,15 +100,16 @@ def edit_client(request, id):
             # caso de cliente antigo que não tem endereço no bd
             if client.address is None:
                 address_db = address_service.register_address(new_address)
-                new_client = Client(name=name, sex=sex, birthday=birthday,
-                                    email=email, profession=profession,
-                                    address=address_db)
+                new_client = Client(name=name, lastname=lastname, sex=sex,
+                                    birthday=birthday, email=email,
+                                    profession=profession, address=address_db)
             else:
                 # no código do instrutor é address ao invés de client.address
                 # mas acaba levando um warning!
                 address_service.edit_address(client.address, new_address)
-                new_client = Client(name=name, sex=sex, birthday=birthday,
-                                    email=email, profession=profession,
+                new_client = Client(name=name, lastname=lastname, sex=sex,
+                                    birthday=birthday, email=email,
+                                    profession=profession,
                                     address=client.address)
 
             client_service.edit_client(client, new_client)

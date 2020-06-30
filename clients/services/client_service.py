@@ -12,13 +12,15 @@ def list_client_id(id):
 
 
 def register_client(client):
-    Client.objects.create(name=client.name, sex=client.sex,
-                          birthday=client.birthday, email=client.email,
-                          profession=client.profession, address=client.address)
+    Client.objects.create(name=client.name, lastname=client.lastname,
+                          sex=client.sex, birthday=client.birthday,
+                          email=client.email, profession=client.profession,
+                          address=client.address)
 
 
 def edit_client(client, new_client):
     client.name = new_client.name
+    client.lastname = new_client.lastname
     client.sex = new_client.sex
     client.birthday = new_client.birthday
     client.email = new_client.email
