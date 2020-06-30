@@ -2,6 +2,31 @@
 
 from django.db import migrations
 
+'''
+1º -> python manage.py makemigrations --empty nome_app
+2º -> insere a lógica da migração
+3º -> python manage.py migrate
+4º -> pode alterar no models para null=False
+5º -> python manage.py makemigrations
+6º -> django vai alertar sobre essa mudança, como tratamos, seleciona opção 2
+7º -> python manage.py migrate
+'''
+
+
+def split_name_lastname(apps, schema_editor):
+    Client = apps.get_model('clients', 'Client')
+    # param1 => nome_app, param2 => model_name
+
+    for client in Client.objects.all():
+        if ' ' in client.name:
+            name, lastname = client.name.split(' ', 1)
+            client.name = name
+            client.lastname = lastname
+            client.save()
+        else:
+            client.lastname = ' '
+            client.save()
+
 
 class Migration(migrations.Migration):
     dependencies = [
@@ -9,4 +34,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        # RunPython executa um determinado método
+        migrations.RunPython(split_name_lastname),
     ]

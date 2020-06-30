@@ -32,7 +32,7 @@ class Client(models.Model):
     )
 
     name = models.CharField(max_length=100, null=False, blank=False)
-    lastname = models.CharField(max_length=30, null=True)
+    lastname = models.CharField(max_length=30, null=False)
     birthday = models.DateField(null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
     profession = models.CharField(max_length=50, null=False, blank=False)
