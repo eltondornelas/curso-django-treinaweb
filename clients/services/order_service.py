@@ -30,8 +30,8 @@ def list_orders():
         # for igual ao do template para mostrar quantas queries fazemos
 
     # para evitar o problema do N+1, vamos utilizar o join com select_related
-    print(connection.queries)
-    print(len(connection.queries))
+    # print(connection.queries)
+    # print(len(connection.queries))
 
     return orders
 
@@ -42,11 +42,11 @@ def list_order_id(id):
     # aqui ñ precisa do prefetch pois como já passamos o id, ele já faz o join
     # aqui não precisa desse cuidado, pois é específico
     # o select e o prefetch é quando vai precisar do "todo"
-    for i in order.products.all():
-        print(i.name)
-
-    print(connection.queries)
-    print(len(connection.queries))
+    # for i in order.products.all():
+    #     print(i.name)
+    #
+    # print(connection.queries)
+    # print(len(connection.queries))
 
     return order
 
