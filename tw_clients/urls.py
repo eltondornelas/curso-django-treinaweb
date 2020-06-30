@@ -20,3 +20,20 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('clients/', include('clients.urls')),
 ]
+
+
+'''
+# comandos utilizando o dumpdata; ele exporta os dados do db para o arquivo
+python manage.py dumpdata > dados.json
+python manage.py dumpdata --indent 2 > dados.json
+python manage.py dumpdata --indent 2 --exclude auth.permission > dados.json
+python manage.py dumpdata --indent 2 --exclude auth.permission --format xml > dados.xml
+'''
+
+'''
+# comando para importar para o db os dados de um arquivo existente
+python manage.py loaddata dados.json
+
+# OBS: por padrão o django vai procurar no diretório fixtures
+# ele não "readiciona" os que ja existiam, apenas é armazenado os novos dados
+'''

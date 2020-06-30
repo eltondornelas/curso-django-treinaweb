@@ -1,0 +1,259 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "clients",
+    "model": "client"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "clients",
+    "model": "address"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "clients",
+    "model": "order"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "clients",
+    "model": "product"
+  }
+},
+{
+  "model": "clients.address",
+  "pk": 1,
+  "fields": {
+    "street": "Dr. Claudio Jos\u00e9 Gueiros Leite",
+    "number": 1111,
+    "complement": "Antilhas",
+    "district": "Concei\u00e7\u00e3o",
+    "city": "Paulista",
+    "country": "Brasil"
+  }
+},
+{
+  "model": "clients.address",
+  "pk": 3,
+  "fields": {
+    "street": "Pr\u00f3ximo ao Olimpus",
+    "number": 717,
+    "complement": "\u00c9 o Olimpus",
+    "district": "Sala do Olimpus",
+    "city": "Olimpus",
+    "country": "Gr\u00e9cia"
+  }
+},
+{
+  "model": "clients.address",
+  "pk": 4,
+  "fields": {
+    "street": "Icecrown Citadel",
+    "number": 666,
+    "complement": "Bem gelado!!",
+    "district": "Frozen Throne",
+    "city": "Icecrown",
+    "country": "Northrend"
+  }
+},
+{
+  "model": "clients.address",
+  "pk": 6,
+  "fields": {
+    "street": "3",
+    "number": 3,
+    "complement": "3",
+    "district": "3",
+    "city": "3",
+    "country": "3"
+  }
+},
+{
+  "model": "clients.product",
+  "pk": 1,
+  "fields": {
+    "name": "Pizza Portuguesa",
+    "description": "Apimentada",
+    "value": 30.0
+  }
+},
+{
+  "model": "clients.product",
+  "pk": 2,
+  "fields": {
+    "name": "Pizza Calabresa",
+    "description": "Calabresa em abund\u00e2ncia",
+    "value": 25.0
+  }
+},
+{
+  "model": "clients.product",
+  "pk": 3,
+  "fields": {
+    "name": "Pizza de Presunto",
+    "description": "Muito presunto",
+    "value": 60.0
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 1,
+  "fields": {
+    "name": "Kratos",
+    "birthday": "1990-01-11",
+    "email": "kratos@god.com",
+    "profession": "Matador de Deuses",
+    "sex": "M",
+    "address": 3
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 7,
+  "fields": {
+    "name": "Arthas",
+    "birthday": "1990-11-01",
+    "email": "arthas@teste.com",
+    "profession": "Lich King",
+    "sex": "M",
+    "address": 4
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 8,
+  "fields": {
+    "name": "Elton",
+    "birthday": "1990-01-01",
+    "email": "elton@gmail.com",
+    "profession": "Desenvolvedor",
+    "sex": "M",
+    "address": 1
+  }
+},
+{
+  "model": "clients.client",
+  "pk": 10,
+  "fields": {
+    "name": "Teste cliente",
+    "birthday": "1990-01-01",
+    "email": "teste@teste.com",
+    "profession": "teste",
+    "sex": "O",
+    "address": 6
+  }
+},
+{
+  "model": "clients.order",
+  "pk": 1,
+  "fields": {
+    "client": 8,
+    "order_date": "2020-06-28T14:48:13Z",
+    "value": 23.0,
+    "status": "P",
+    "observations": "Pizza Portuguesa na medida!",
+    "products": []
+  }
+},
+{
+  "model": "clients.order",
+  "pk": 2,
+  "fields": {
+    "client": 8,
+    "order_date": "2020-06-28T14:59:59Z",
+    "value": 25.0,
+    "status": "E",
+    "observations": "Sushi",
+    "products": []
+  }
+},
+{
+  "model": "clients.order",
+  "pk": 3,
+  "fields": {
+    "client": 1,
+    "order_date": "2020-06-28T23:14:35Z",
+    "value": 50.0,
+    "status": "P",
+    "observations": "Sem cebola",
+    "products": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "clients.order",
+  "pk": 4,
+  "fields": {
+    "client": 7,
+    "order_date": "2020-06-29T00:55:58Z",
+    "value": 55.0,
+    "status": "P",
+    "observations": "Sem legumes",
+    "products": [
+      1,
+      2
+    ]
+  }
+}
+]
