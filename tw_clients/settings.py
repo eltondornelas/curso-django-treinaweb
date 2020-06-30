@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'clients',
     'django_adminlte',
+    'mixer',
 ]
 
 MIDDLEWARE = [
