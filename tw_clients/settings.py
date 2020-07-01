@@ -73,16 +73,40 @@ WSGI_APPLICATION = 'tw_clients.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# o django precisa da chave 'default' mesmo que fique vazia ela tem que existir
 DATABASES = {
-    'default': {
+    'default': {},
+    'write': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tw_django_fundamentos_write',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306'
+    },
+    'read': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tw_django_fundamentos',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306'
-    }
+    },
 }
+
+# configurando PostgreSQL, não consegui instalar o psycopg2 por algum motivo
+# pip install psycopg2
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'tw_django_fundamentos',
+#         'USER': 'eltondornelas',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '5432'
+#     }
+# }
+
 
 # https://docs.djangoproject.com/en/3.0/topics/cache/
 # CACHES = {
