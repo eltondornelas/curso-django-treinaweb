@@ -41,6 +41,9 @@ class Client(models.Model):
     address = models.OneToOneField(Address, on_delete=models.SET_NULL,
                                    null=True)
 
+    class Meta:
+        db_table = 'cliente'
+
     def __str__(self):
         return self.name
 
@@ -79,7 +82,6 @@ def pre_save_product_receiver(sender, instance, action, **kwargs):
 
 
 m2m_changed.connect(pre_save_product_receiver, sender=Order.products.through)
-
 
 '''
 python manage.py migrate clients 0005_order
