@@ -84,6 +84,28 @@ DATABASES = {
     }
 }
 
+# https://docs.djangoproject.com/en/3.0/topics/cache/
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': '/var/tmp/django_cache',
+#     }
+# }
+
+# https://docs.djangoproject.com/en/3.0/topics/cache/
+# python manage.py createcachetable
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'my_cache_table',
+#     }
+# }
+
+# github.com/niwinz/django-redis
+# https://github.com/jazzband/django-redis/tree/master/django_redis/client
+# .../1 no locations é o nome da conexão... lembrando que utilizamos localhost
+# KEY_PREFIX pode ser qualquer nome
+# REDIS é um BD NÃO RELACIONAO, armazena no formato KV
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
@@ -94,10 +116,6 @@ CACHES = {
         'KEY_PREFIX': 'django_orm'
     }
 }
-# github.com/niwinz/django-redis
-# https://github.com/jazzband/django-redis/tree/master/django_redis/client
-# .../1 no locations é o nome da conexão...
-# KEY_PREFIX pode ser qualquer nome
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
