@@ -94,6 +94,19 @@ DATABASES = {
     },
 }
 
+'''
+# o django vai direto na conexao default, nesse caso vamos especificar:
+python manage.py migrate --database=write
+
+# vai ocorrer um erro devido aquela migração que modificamos para separar o
+# nome do sobrenome, ou seja, precisamos excluí-la do processo de migração
+# já que não há mais essa necessidade, através do comando:
+python manage.py migrate clients 0008 --database=write --fake
+python manage.py migrate --database=write
+
+'''
+
+
 # configurando PostgreSQL, não consegui instalar o psycopg2 por algum motivo
 # pip install psycopg2
 # DATABASES = {

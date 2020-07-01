@@ -2,7 +2,8 @@ from ..models import Client
 
 
 def list_clients():
-    clients = Client.objects.all()
+    clients = Client.objects.using('read').all()
+    # para informar qual conexão de leitura. esse é o formato manual
     # clients = Client.objects.filter(sex='F').all()
     '''
     # clients = Client.objects.filter(sex='F', birthday > '1990-01-01').all()
