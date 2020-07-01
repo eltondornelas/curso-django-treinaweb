@@ -94,6 +94,8 @@ DATABASES = {
     },
 }
 
+DATABASE_ROUTERS = ['clients.router.Router']
+
 '''
 # o django vai direto na conexao default, nesse caso vamos especificar:
 python manage.py migrate --database=write
