@@ -3,6 +3,15 @@ from ..models import Client
 
 def list_clients():
     clients = Client.objects.all()
+    # clients = Client.objects.filter(sex='F').all()
+    '''
+    # clients = Client.objects.filter(sex='F', birthday > '1990-01-01').all()
+    # clients = Client.objects.exclude(sexo='F', birthday > '1990-01-01')
+    os dois exemplos acima estavam no material do curso, porém acredito estar
+    equivocado, o correto seria:
+     (birthday__gt='1990-01-01')
+    '''
+
     return clients
 
 

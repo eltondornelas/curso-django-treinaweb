@@ -43,6 +43,8 @@ class Client(models.Model):
 
     class Meta:
         db_table = 'cliente'
+        # ordering = ['birthday']  # formas de ordenar o retorno do db
+        # ordering = ['-birthday']  # oderna ao 'contraio'
 
     def __str__(self):
         return self.name
@@ -82,7 +84,6 @@ def pre_save_product_receiver(sender, instance, action, **kwargs):
 
 
 m2m_changed.connect(pre_save_product_receiver, sender=Order.products.through)
-
 
 # class Worker(models.Model):
 #     id_worker = models.AutoField(primary_key=True)
