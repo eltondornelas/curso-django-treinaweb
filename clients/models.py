@@ -83,6 +83,12 @@ def pre_save_product_receiver(sender, instance, action, **kwargs):
 
 m2m_changed.connect(pre_save_product_receiver, sender=Order.products.through)
 
+
+# class Worker(models.Model):
+#     id_worker = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=50, null=True, blank=True)
+
+
 '''
 python manage.py migrate clients 0005_order
 
