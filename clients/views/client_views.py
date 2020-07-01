@@ -1,11 +1,29 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.cache import cache_page
 from clients.forms.address_forms import AddressForm
 from clients.forms.client_forms import ClientForm
 from clients.entities.client import Client
 from clients.entities.address import Address
 from clients.services import client_service, address_service
 
+'''
+# o parâmetro do cache é o tempo em segundos.
+# para fazer testes é interessante utilizar o loadtest
+# https://www.npmjs.com/package/loadtest
+npm install -g loadtest
+# loadtest [-n requests] [-c concurrency] [-k] URL
+loadtest -n 100 -k http://127.0.0.1:8000/clients/list_clients
+# no terminal
 
+# OBS: atenção com o tempo do cache, pois caso você insira um valor novamente
+    ainda dentro do tempo do cache, o valor retornado não será o atualizado.
+    para fazer o teste basta atualizar algum dado e dar refresh na página que
+    ainda terá o valor anterior, pois é esse valor que está no cache naquele
+    momento.
+'''
+
+
+@cache_page(5)
 def list_clients(request):
     clients = client_service.list_clients()
     return render(request, 'clients/list_clients.html', {'clients': clients})

@@ -108,3 +108,8 @@ unique=True
 # criando uma migração em branco/vazia
 python manage.py makemigrations --empty nome_app
 '''
+
+'''
+# para apagar dados do bd. isso não mexe na estrutura do banco de dados
+python manage.py flush
+'''
